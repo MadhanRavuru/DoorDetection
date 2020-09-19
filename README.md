@@ -15,10 +15,13 @@ The initial weights for model are the weights from coco dataset with 80 classes.
 
 Train using the *Train.ipynb* notebook to get weights for our model. *checkpoints* folder will be created with weights stored for certain epochs. Place them in *config* folder with name *yolov3.weights*.
 
-I had to train for with 1374 images for 100 epochs, batch size of 8, and learning rate as 0.0001
-Then, using 90.weights from checkpoints folder, the model is further trained with different setting. Now, learning rate is 0.0005
+I had to train for with 1374 images for 101 epochs, checkpoint interval as 10, batch size of 8, and learning rate as 0.0001
 
-**Observation**
-The model detects door in simple floor plans effectively. For more challenging plans, we split image intosmaller merges, perform detection and merge as in staircase detection.
+Then, using 90.weights from checkpoints folder is renamed to yolov3.weights. The model is further trained with these weights. Now, learning rate is 0.00005 and checkpoint interval is 5 with epochs as 21. Now 10.weights has better detections in comparison with others. It is renamed to yolov3.weights and used for testing.
 
-The model basically learns to detect arcs in images, which are nothing but doors. For complex floor plans, we get lot of false positives and false negatives. This means the model is not robust. It is hard for model to identify doors in challenging plans
+**Testing**
+The model detects door in simple floor plans effectively. For more challenging plans, we split image into smaller images, perform detection and merge as final detected image similar to staircase detection.
+
+The model basically learns to detect arcs in images, which are nothing but doors. For complex floor plans, we get lot of false positives and false negatives. This means the model is not robust. this can be seen in images/split/final_detected_img.jpg
+
+It is hard for model to identify doors in challenging plans, even with advanced training.
