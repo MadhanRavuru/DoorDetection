@@ -1,0 +1,6 @@
+classes=1
+train=data/DoorDetection/train.txt
+valid=data/DoorDetection/val.txt
+names=config/coco.names
+backup=backup/
+
